@@ -1,0 +1,136 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Auth.js Models ───────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String?
+  onboardingCompleted Boolean @default(false)
+  goal          String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      AuthSession[]
+  calibration   Calibration?
+  settings      UserSettings?
+  movementSessions MovementSession[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model AuthSession {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("auth_sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─── Application Models ───────────────────────────────────
+
+model Calibration {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  status       String   @default("NOT_STARTED") // NOT_STARTED, IN_PROGRESS, COMPLETED
+  baselineData String?  // Stored as JSON string for SQLite compatibility
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model MovementSession {
+  id               String   @id @default(cuid())
+  userId           String
+  exercise         String   @default("bodyweight_squat")
+  startedAt        DateTime @default(now())
+  completedAt      DateTime?
+  duration         Int?     // seconds
+  targetReps       Int      @default(10)
+  attemptedReps    Int      @default(0)
+  acceptedReps     Int      @default(0)
+  rejectedReps     Int      @default(0)
+  movementQuality  Float?   // 0-100
+  depthScore       Float?   // 0-100
+  alignmentScore   Float?   // 0-100
+  consistencyScore Float?   // 0-100
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  repetitions Repetition[]
+
+  @@index([userId, createdAt(sort: Desc)])
+}
+
+model Repetition {
+  id             String   @id @default(cuid())
+  sessionId      String
+  number         Int
+  status         String   // ACCEPTED, REJECTED
+  errorType      String   @default("NONE") // NONE, INSUFFICIENT_DEPTH, KNEE_ALIGNMENT, TRACKING_ERROR
+  feedback       String?
+  depthScore     Float?   // 0-100
+  alignmentScore Float?   // 0-100
+  timestamp      DateTime @default(now())
+
+  session MovementSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+}
+
+model UserSettings {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  targetReps      Int      @default(10)
+  voiceFeedback   Boolean  @default(true)
+  voiceVolume     Int      @default(70)
+  preferredCamera String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

@@ -1,0 +1,2 @@
+/* Auth specific overrides beyond globals.css */
+.auth-layout { min-height: 100vh; display: flex; flex-direction: column; background: var(--bg-primary); }
