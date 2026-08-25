@@ -45,7 +45,7 @@ export default function LandingPage() {
             </motion.h1>
             
             <motion.p variants={itemVariants} className="hero-description">
-              Camera-powered rehabilitation that doesn't just count reps. RehabCoach analyzes movement quality, alignment, and depth in real time.
+              Camera-powered rehabilitation that doesn't just count reps. Corvo analyzes movement quality, alignment, and depth in real time.
             </motion.p>
             
             <motion.div variants={itemVariants} className="hero-actions">
@@ -137,7 +137,7 @@ export default function LandingPage() {
 
             <motion.div variants={itemVariants} className="dash-card" style={{textAlign: 'center', background: 'var(--bg-white)', border: '1px solid var(--border-color)', boxShadow: 'none'}}>
               <span className="step-number">03 / ANALYZE</span>
-              <p className="t-body" style={{fontWeight: 600, color: 'var(--text-primary)'}}>RehabCoach evaluates movement in real time.</p>
+              <p className="t-body" style={{fontWeight: 600, color: 'var(--text-primary)'}}>Corvo evaluates movement in real time.</p>
             </motion.div>
           </div>
         </motion.div>
@@ -221,7 +221,7 @@ export default function LandingPage() {
           <motion.div variants={itemVariants} className="icon-wrap mb-24"><ShieldCheck size={32} color="var(--primary)"/></motion.div>
           <motion.h2 variants={itemVariants} className="h-section mb-24">YOUR MOVEMENT.<br/>YOUR DATA.</motion.h2>
           <motion.p variants={itemVariants} className="t-body">
-            RehabCoach is designed around privacy. Camera access is only requested when you start a movement session.
+            Corvo is designed around privacy. Camera access is only requested when you start a movement session.
           </motion.p>
         </motion.div>
       </section>
@@ -236,7 +236,7 @@ export default function LandingPage() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="h-section mb-24">READY TO MOVE BETTER?</h2>
-          <p className="t-body mb-40" style={{color: 'rgba(255,255,255,0.7)'}}>Start your first movement session with RehabCoach.</p>
+          <p className="t-body mb-40" style={{color: 'rgba(255,255,255,0.7)'}}>Start your first movement session with Corvo.</p>
           <PrimaryButton href="/health-hub" className="mt-16">START A SESSION</PrimaryButton>
         </motion.div>
       </section>

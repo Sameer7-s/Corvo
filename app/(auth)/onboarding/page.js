@@ -23,7 +23,7 @@ export default function Onboarding() {
           {step === 1 ? "What's your primary goal?" : "How to set up."}
         </h1>
         <p className="t-body">
-          {step === 1 ? "We'll customize your movement analysis based on what you want to achieve." : "RehabCoach uses your phone's camera to analyze your movement in real-time."}
+          {step === 1 ? "We'll customize your movement analysis based on what you want to achieve." : "Corvo uses your phone's camera to analyze your movement in real-time."}
         </p>
       </div>
 

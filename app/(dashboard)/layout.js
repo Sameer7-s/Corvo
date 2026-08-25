@@ -35,7 +35,7 @@ export default function DashboardLayout({ children }) {
       {/* Desktop Sidebar */}
       <aside className="dashboard-sidebar">
         <div className="sidebar-brand">
-          <Link href="/health-hub" className="logo-text">RehabCoach</Link>
+          <Link href="/health-hub" className="logo-text">Corvo</Link>
         </div>
         
         <nav className="sidebar-nav">

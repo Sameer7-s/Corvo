@@ -3,14 +3,14 @@ const prisma = new PrismaClient()
 
 async function main() {
   let user = await prisma.user.findUnique({
-    where: { email: "demo@rehabcoach.app" }
+    where: { email: "demo@corvo.app" }
   });
 
   if (!user) {
     user = await prisma.user.create({
       data: {
         id: "demo-athlete",
-        email: "demo@rehabcoach.app",
+        email: "demo@corvo.app",
         name: "Demo Athlete",
         onboardingCompleted: true,
         goal: "improve mobility"

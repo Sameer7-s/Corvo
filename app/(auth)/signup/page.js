@@ -81,7 +81,7 @@ export default function Signup() {
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
-            placeholder="demo@rehabcoach.app"
+            placeholder="demo@corvo.app"
           />
         </div>
         <div className="input-group">

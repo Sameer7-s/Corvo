@@ -15,7 +15,7 @@ export default function Profile() {
         <h3 className="h-card mb-16">Profile Details</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
           <div><span style={{color: 'var(--text-muted)', fontSize: 13, fontWeight: 700}}>NAME</span><div style={{fontWeight: 600}}>Demo Athlete</div></div>
-          <div><span style={{color: 'var(--text-muted)', fontSize: 13, fontWeight: 700}}>EMAIL</span><div style={{fontWeight: 600}}>demo@rehabcoach.app</div></div>
+          <div><span style={{color: 'var(--text-muted)', fontSize: 13, fontWeight: 700}}>EMAIL</span><div style={{fontWeight: 600}}>demo@corvo.app</div></div>
         </div>
 
         <h3 className="h-card mb-16">Account Actions</h3>

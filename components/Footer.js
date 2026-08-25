@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '64px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '48px' }}>
           <div>
-            <Link href="/" style={{ fontSize: '24px', fontWeight: 800, display: 'block', marginBottom: '16px' }}>RehabCoach</Link>
+            <Link href="/" style={{ fontSize: '24px', fontWeight: 800, display: 'block', marginBottom: '16px' }}>Corvo</Link>
             <p style={{ fontSize: '20px', fontWeight: 500, color: 'var(--text-secondary)', lineHeight: 1.4 }}>Move better.<br/>One rep at a time.</p>
           </div>
           <div style={{ display: 'flex', gap: '80px', flexWrap: 'wrap' }}>
@@ -25,9 +25,9 @@ export default function Footer() {
         </div>
         <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '32px' }}>
           <p style={{ fontSize: '13px', color: 'var(--text-muted)', maxWidth: '600px' }}>
-            RehabCoach provides movement-quality feedback and does not diagnose injuries, assess recovery, or prescribe treatment.
+            Corvo provides movement-quality feedback and does not diagnose injuries, assess recovery, or prescribe treatment.
           </p>
-          <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '16px' }}>© {new Date().getFullYear()} RehabCoach. All rights reserved.</p>
+          <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '16px' }}>© {new Date().getFullYear()} Corvo. All rights reserved.</p>
         </div>
       </div>
     </footer>

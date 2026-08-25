@@ -285,7 +285,7 @@ export default function Session() {
             <Camera size={48} className="mb-24" color="var(--text-secondary)" />
             <h2 className="h-app mb-16">CAMERA ACCESS REQUIRED</h2>
             <p className="t-body max-w-sm text-center mb-32">
-              RehabCoach needs access to your camera to analyze your movement during the session.
+              Corvo needs access to your camera to analyze your movement during the session.
             </p>
             {cameraError && (
               <div className="f-pill ERROR mb-24"><ShieldAlert size={16}/> {cameraError}</div>

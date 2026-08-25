@@ -29,7 +29,7 @@ export default function Navbar() {
     <>
       <header className={`nav-wrap ${scrolled ? "nav-scrolled" : ""}`}>
         <div className="nav-inner">
-          <Link href="/" className="nav-logo">RehabCoach</Link>
+          <Link href="/" className="nav-logo">Corvo</Link>
           <nav className="nav-desktop">
             {links.map((l) => <a key={l.label} href={l.href} className="nav-link">{l.label}</a>)}
           </nav>
@@ -41,7 +41,7 @@ export default function Navbar() {
       </header>
       <div className={`mobile-overlay ${menuOpen ? "open" : ""}`}>
         <div className="mobile-header">
-          <Link href="/" className="nav-logo">RehabCoach</Link>
+          <Link href="/" className="nav-logo">Corvo</Link>
           <button onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={24} /></button>
         </div>
         <nav className="mobile-links">
